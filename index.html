@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FASTSPRING</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rel="noopener"
+      target="_blank"
+      href="main.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="gameWrapper">
+      <canvas id="gameCanvas" width="900" height="350"></canvas>
+      <div id="overlay" class="overlay" style="display: none"></div>
+      <div id="livesDisplay" class="lives">
+        Lives: <span id="lives">1</span>
+        <img src="life.png" alt="Life Icon" class="life-icon" />
+      </div>
+      <div id="pointsDisplay" class="points">
+        Points: <span id="points">0</span>
+      </div>
+      <!-- Name Input Modal -->
+      <div
+        class="modal-game"
+        id="nameInputModal"
+        style="display: flex; z-index: 10"
+      >
+        <div class="modal-content-game">
+          <img src="welcome.png" alt="welcome" class="modal-image" />
+          <p>Enter your name to start the game</p>
+          <input type="text" id="playerNameInput" maxlength="10" />
+          <div class="button-container">
+            <button class="collision-button" id="submitNameButton">
+              Start
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Game Over Modal -->
+      <div class="modal-game" id="collisionModal" style="display: none">
+        <div class="modal-content-game">
+          <img src="gameover.png" alt="Game Over" class="modal-image" />
+          <p>What would you like to do next?</p>
+          <div class="button-container">
+            <button
+              class="collision-button"
+              id="checkoutButton"
+              onclick="securePurchase()"
+            >
+              BUY A LIFE
+            </button>
+            <a
+              href="https://marco.fastspringexamples.com/embedded-javascript/"
+              target="_blank"
+            >
+              <button class="collision-button">VIEW DEMO</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Start Game Modal
+      <div class="modal-game" id="startGame" style="display: flex">
+        <div class="modal-content-game">
+          <img src="welcome.png" alt="welcome" class="modal-image" />
+          <p>Press Spacebar to start</p>
+          <div class="button-container">
+            <button class="start-button">SPACEBAR</button>
+          </div>
+        </div>
+      </div>
+      <div id="spriteButtons"></div> -->
+      <div id="retryText" class="retry center" style="display: none">
+        Press Enter to continue
+      </div>
+    </div>
+    <!-- Leaderboard Section -->
+    <div id="leaderboard" class="leaderboard">
+      <h3>Leaderboard</h3>
+      <ul id="leaderboardList">
+        <!-- Leaderboard entries will be dynamically added here -->
+      </ul>
+    </div>
+    <script
+      id="fsc-api"
+      src="https://sbl.onfastspring.com/sbl/0.9.6/fastspring-builder.min.js"
+      type="text/javascript"
+      data-storefront="fsgame.test.onfastspring.com/popup-fsgame"
+      data-popup-webhook-received="addLife"
+      data-popup-closed="restartGame"
+      data-access-key="S3HSMK3EQA2S2CCKM1QYYA"
+    ></script>
+    <script src="main_3.js"></script>
+  </body>
+</html>

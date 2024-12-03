@@ -1,0 +1,150 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>T-Rex Game</title>
+    <style>
+      #spriteButtons {
+        text-align: center;
+        margin-top: 20px;
+      }
+      canvas {
+        display: block;
+        margin: 0 auto; /* Center the canvas horizontally */
+        max-width: 100%; /* Ensure it scales down on smaller screens */
+        background-color: #f4f4f4; /* Optional: your desired canvas background color */
+      }
+      body {
+        font-family: "Press Start 2P", cursive;
+      }
+      /* Modal background */
+      #collisionModal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Modal content box */
+      #collisionModal > div {
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Buttons styling */
+      #collisionModal button {
+        font-family: "Press Start 2P", cursive;
+        font-size: 13px;
+        color: black;
+        background-color: #f4f4f4;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.2s;
+      }
+
+      #collisionModal button:hover {
+        background-color: #ccc;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Modal Structure -->
+    <div
+      id="collisionModal"
+      style="
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+      "
+    >
+      <div
+        style="
+          background-color: white;
+          margin: 15% auto;
+          padding: 20px;
+          width: 80%;
+          max-width: 400px;
+          text-align: center;
+        "
+      >
+        <p>Game Over! What would you like to do next?</p>
+        <button id="checkoutButton">Buy a life</button>
+        <a
+          href="https://marco.fastspringexamples.com/embedded-javascript/"
+          target="_blank"
+          ><button>View Demo</button></a
+        >
+      </div>
+    </div>
+
+    <div style="position: relative; width: 900px; margin: auto">
+      <canvas id="gameCanvas" width="900" height="350"></canvas>
+      <div
+        id="pointsDisplay"
+        style="
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-family: 'Press Start 2P', cursive;
+          font-size: 13px;
+          color: black;
+          padding: 10px;
+        "
+      >
+        Points: <span id="points">0</span>
+      </div>
+    </div>
+    <div id="spriteButtons">
+      <!-- <button onclick="changeSprite('trex')">Springer</button> -->
+      <!-- <button onclick="changeSprite('otherSprite1')">Sprite 1</button> -->
+      <!-- <button onclick="changeSprite('otherSprite2')">Sprite 2</button> -->
+      <!-- Add more buttons for different sprites -->
+    </div>
+    <!-- Retry Button -->
+    <div
+      id="retryText"
+      style="text-align: center; display: none; margin-top: 10px"
+    >
+      Press Enter to continue
+    </div>
+    <div id="startMessage" style="text-align: center; margin-top: 20px">
+      Press Spacebar to start the game.
+    </div>
+    <script
+      id="fsc-api"
+      src="https://sbl.onfastspring.com/sbl/0.9.6/fastspring-builder.min.js"
+      type="text/javascript"
+      data-storefront="assignmentse.test.onfastspring.com/popup-fs-game"
+      data-popup-closed="restartGame"
+      data-continuous="true"
+      data-access-key="D8RVBIZ3SFMXNC5Z5VV1HQ"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
